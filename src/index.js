@@ -6,20 +6,6 @@ const outputFolder = './build/';
 const rateLimit = 20;
 const waitTimeInSeconds = 45;
 
-const componentStart = `
-import React from 'react';
-
-const Icon = () => {
-  return (
-`;
-
-const componentEnd = `
-  );
-}
-
-export default Icon;
-`;
-
 const getProjectNode = async () => {
   return await figmaRestApi.get(
     'files/' + process.env.FIGMA_PROJECT_ID + '/nodes?ids=' + process.env.FIGMA_PROJECT_NODE_ID
@@ -65,11 +51,7 @@ const svgExporter = async () => {
 
         // Get SVG DOM
         const svgDOM = await axios.get(svgURL.data.images[svg.id]);
-        const component = `${componentStart} ${svgDOM.data} ${componentEnd}`;
-        const filename = svgName.replace('Name=', '');
-        console.log(filename);
-
-        Utils.writeToFile(outputFolder + `${filename}.jsx`, component);
+        Utils.writeToFile(outputFolder + `${Utils.camelCaseToDash(svgName)}.svg`, svgDOM.data);
       });
 
       await Promise.all(requests)

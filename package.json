@@ -4,7 +4,7 @@
   "description": "Export SVGs from Figma",
   "main": "index.js",
   "scripts": {
-    "test": "TZ=Asia/Singapore jest"
+    "build:svg": "node src/index.js"
   },
   "author": "Jacob Tan <jacobtyq@gmail.com>",
   "license": "MIT",
