@@ -4,7 +4,8 @@
   "description": "Export SVGs from Figma",
   "main": "index.js",
   "scripts": {
-    "build:svg": "node src/index.js"
+    "build:svg": "node src/index.js",
+    "build:react": "node src/buildReact.js"
   },
   "author": "Jacob Tan <jacobtyq@gmail.com>",
   "license": "MIT",
@@ -13,6 +14,7 @@
     "dotenv": "^10.0.0",
     "fs": "^0.0.1-security",
     "jest": "^27.1.1",
+    "path": "^0.12.7",
     "pg": "^8.7.1"
   }
 }

@@ -43,9 +43,14 @@ const createFolder = async (path) => {
 const filterPrivateComponents = (svgs) =>
   svgs.filter(({ name }) => !name.startsWith('.') && !name.startsWith('_'));
 
+const capitalize = (s) => {
+  return s && s[0].toUpperCase() + s.slice(1);
+};
+
 exports.writeToFile = writeToFile;
 exports.camelCaseToDash = camelCaseToDash;
 exports.flattenArray = flattenArray;
 exports.findAllByValue = findAllByValue;
 exports.createFolder = createFolder;
 exports.filterPrivateComponents = filterPrivateComponents;
+exports.capitalize = capitalize;
